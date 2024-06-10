@@ -5,8 +5,8 @@ import { AuthContext } from '../auth/AuthContext';
 import { AuthRouter } from './AuthRouter';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
+import {PageRouter} from './PageRouter';
 import { Navbar } from '../components/Navbar';
-import { MapsPage } from '../pages/MapsPage';
 
 export const AppRouter = () => {
   const { auth, verifyToken } = useContext(AuthContext);
@@ -29,10 +29,10 @@ export const AppRouter = () => {
               <AuthRouter />
             </PublicRoute>
           } />
-          <Route path="/" element={
+          <Route path="/*" element={
             <PrivateRoute isAuthenticated={auth.logged}>
-              <Navbar/>
-              <MapsPage/>
+               <Navbar/>
+               <PageRouter/>           
             </PrivateRoute>
           } />
           <Route path="*" element={<Navigate to="/" replace />} />
