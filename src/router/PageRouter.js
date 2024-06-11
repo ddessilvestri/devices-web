@@ -9,7 +9,7 @@ export const PageRouter = () => {
       <Routes>
         <Route path="map" element={<MapsPage />} />
         <Route path="chat" element={<ChatPage />} />
-        <Route path="*" element={<Navigate to="map" replace />} />
+        <Route path="*" element={<Navigate to="chat" replace />} />
       </Routes>
     </div>
   );
