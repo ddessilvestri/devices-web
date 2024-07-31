@@ -17,7 +17,6 @@ const initialState = {
 export const AuthProvider= ({children}) => {
   
   const [auth, setAuth] = useState(initialState);
-  
   const login = async (email,password)=> {
     const resp = await fetchWithoutToken('login',{email,password},'POST');
   
@@ -112,8 +111,11 @@ export const AuthProvider= ({children}) => {
   const logout = ()=> {
     localStorage.removeItem('token');
     setAuth({
+      uid: null,
       checking: false,
-      logged: false
+      logged: false,
+      name: null,
+      email: null,
     });
   }
 

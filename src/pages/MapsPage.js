@@ -50,7 +50,7 @@ useEffect(() => {
        socket.on('updated-marker',(marker)=>{
         updateLocation(marker);
        }) 
-    }, [socket])
+    }, [socket,updateLocation])
     
 
     // listen new markers
